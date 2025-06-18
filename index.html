@@ -13,6 +13,33 @@
     .project-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .project-img { object-fit: cover; height: 100px; width: 150px; }
     .error-message { color: red; text-align: center; padding: 20px; }
+    .hero-section {
+      background-image: linear-gradient(rgba(0, 0, 50, 0.7), rgba(0, 0, 50, 0.7)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    .about-section {
+      background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1551288049-b1f3c21d0e65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .skills-section {
+      background-image: linear-gradient(rgba(243, 244, 246, 0.95), rgba(243, 244, 246, 0.95)), url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .projects-section {
+      background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .contact-section {
+      background-image: linear-gradient(rgba(243, 244, 246, 0.95), rgba(243, 244, 246, 0.95)), url('https://images.unsplash.com/photo-1516321165247-7d868bd878a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+    .section-text { text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
   </style>
 </head>
 <body class="bg-gray-50 font-sans">
@@ -21,34 +48,34 @@
     <div class="container mx-auto flex justify-between items-center">
       <h1 class="text-2xl font-bold">Ayan Banerjee</h1>
       <ul class="flex space-x-6">
-        <li><a href="#about" class="hover:underline">About</a></li>
-        <li><a href="#skills" class="hover:underline">Skills</a></li>
-        <li><a href="#projects" class="hover:underline">Projects</a></li>
-        <li><a href="#contact" class="hover:underline">Contact</a></li>
+        <li><a href="#about" className="hover:underline">About</a></li>
+        <li><a href="#skills" className="hover:underline">Skills</a></li>
+        <li><a href="#projects" className="hover:underline">Projects</a></li>
+        <li><a href="#contact" className="hover:underline">Contact</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-16">
+  <section class="min-h-screen hero-section text-white flex items-center justify-center">
     <div class="container mx-auto flex flex-col md:flex-row items-center px-4">
       <div class="md:w-1/2 text-center md:text-left">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4">Data Scientist & Innovator</h2>
-        <p class="text-lg mb-6">Specializing in Machine Learning, Deep Learning, Statistics, and Mathematics.</p>
+        <h2 class="text-4xl md:text-5xl font-bold mb-4 section-text">Data Scientist & Innovator</h2>
+        <p class="text-lg mb-6 section-text">Specializing in Machine Learning, Deep Learning, Statistics, and Mathematics.</p>
         <a href="#contact" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200">Connect with Me</a>
       </div>
       <div class="md:w-1/2 mt-6 md:mt-0">
-        <img src="https://via.placeholder.com/300x300" alt="Profile Photo" class="rounded-full mx-auto shadow-lg">
+        <img src="https://avatars.githubusercontent.com/AyanBanerjee29" alt="Profile Photo" class="rounded-full mx-auto shadow-lg w-72 h-72 object-cover" />
       </div>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-16">
+  <section id="about" class="min-h-screen about-section py-16 flex items-center">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8">About Me</h2>
+      <h2 class="text-3xl font-bold text-center mb-8 section-text">About Me</h2>
       <div class="max-w-3xl mx-auto text-center">
-        <p class="text-lg text-gray-700 mb-4">
+        <p class="text-lg text-gray-700 mb-4 section-text">
           I'm Ayan Banerjee, a data scientist with expertise in machine learning, deep learning, statistics, and mathematics. Currently pursuing my degree at RKMVERI and Serampore College, I build innovative solutions like recommendation systems, OCR models, and fraud detection systems using Python, PyTorch, and TensorFlow.
         </p>
         <a href="https://cdn.jsdelivr.net/gh/AyanBanerjee29/Portfolio@main/Portfolio.pdf" class="text-indigo-600 hover:underline">Download My Portfolio PDF</a>
@@ -57,26 +84,26 @@
   </section>
 
   <!-- Skills Section -->
-  <section id="skills" class="bg-gray-100 py-16">
+  <section id="skills" class="min-h-screen skills-section py-16 flex items-center">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8">Technical Skills</h2>
+      <h2 class="text-3xl font-bold text-center mb-8 section-text">Technical Skills</h2>
       <div id="skills-chart" class="max-w-2xl mx-auto"></div>
     </div>
   </section>
 
   <!-- Projects Section -->
-  <section id="projects" class="py-16">
+  <section id="projects" class="min-h-screen projects-section py-16 flex items-center">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8">My Projects</h2>
+      <h2 class="text-3xl font-bold text-center mb-8 section-text">My Projects</h2>
       <div id="projects-container" class="flex flex-col gap-4 max-w-2xl mx-auto"></div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="bg-gray-100 py-16">
+  <section id="contact" class="min-h-screen contact-section py-16 flex items-center">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-8">Get in Touch</h2>
-      <p class="text-lg text-gray-700 mb-6">Let's collaborate on data-driven solutions!</p>
+      <h2 class="text-3xl font-bold mb-8 section-text">Get in Touch</h2>
+      <p class="text-lg text-gray-700 mb-6 section-text">Let's collaborate on data-driven solutions!</p>
       <div id="contact-form" class="max-w-md mx-auto"></div>
       <div class="flex justify-center space-x-6 mt-6">
         <a href="mailto:ayan292004banerjee@gmail.com" class="text-indigo-600 hover:underline">Email</a>
@@ -94,9 +121,7 @@
   </footer>
 
   <script type="text/babel">
-    // Fallback for script errors
     try {
-      // Skills Component
       const SkillsChart = () => {
         const skills = [
           { name: "Python", level: 90 },
@@ -127,15 +152,19 @@
         );
       };
 
-      // Project Card Component
-      const ProjectCard = ({ title, description, link, image, isImageRight }) => {
+      const ProjectCard = ({ title, date, affiliation, description, link, image, isImageRight }) => {
         return (
           <div className="bg-white p-4 rounded-lg shadow-md project-card flex flex-col sm:flex-row items-center gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
             {isImageRight ? (
               <>
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold mb-1">{title}</h3>
-                  <p className="text-gray-600 text-sm mb-2">{description}</p>
+                  <p className="text-sm text-gray-500 mb-1">{date} | {affiliation}</p>
+                  <ul className="text-gray-600 text-sm mb-2 list-disc list-inside">
+                    {description.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
                   <a href={link} className="text-indigo-600 text-sm hover:underline">View on GitHub</a>
                 </div>
                 <img src={image} alt={title} className="project-img rounded-lg" />
@@ -145,7 +174,12 @@
                 <img src={image} alt={title} className="project-img rounded-lg" />
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold mb-1">{title}</h3>
-                  <p className="text-gray-600 text-sm mb-2">{description}</p>
+                  <p className="text-sm text-gray-500 mb-1">{date} | {affiliation}</p>
+                  <ul className="text-gray-600 text-sm mb-2 list-disc list-inside">
+                    {description.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
                   <a href={link} className="text-indigo-600 text-sm hover:underline">View on GitHub</a>
                 </div>
               </>
@@ -154,26 +188,55 @@
         );
       };
 
-      // Projects Container
       const ProjectsContainer = () => {
         const projects = [
           {
             title: "Movie Recommendation System",
-            description: "Deep learning model for personalized movie suggestions.",
+            date: "Jan. '25 - Apr. '25",
+            affiliation: "RKMVERI",
+            description: [
+              "Recommending movies using Graph Neural Networks (GNN).",
+              "Evaluated GCN, GAT, and LightGCN for user-item modeling.",
+              "Improved accuracy over Matrix Factorization with graph structures.",
+            ],
             link: "https://github.com/AyanBanerjee29/movie-recommendation",
             image: "https://via.placeholder.com/150x100?text=Movie+Recommendation",
           },
           {
+            title: "Music Segmentation",
+            date: "Jan. '25 - Apr. '25",
+            affiliation: "RKMVERI",
+            description: [
+              "Extracted drums, vocals, bass from tracks using Deep Learning.",
+              "Compared signal processing with U-Net model on MUSDB18.",
+              "Achieved superior separation quality using SDR metric.",
+            ],
+            link: "https://github.com/AyanBanerjee29/music-segmentation",
+            image: "https://via.placeholder.com/150x100?text=Music+Segmentation",
+          },
+          {
             title: "Bengali OCR",
-            description: "CNN-based OCR for Bengali digits and characters.",
+            date: "Jan. '25 - Apr. '25",
+            affiliation: "RKMVERI",
+            description: [
+              "Developed OCR for handwritten Bengali characters.",
+              "Built CNN models (LeNet-5, ResNet18) with 94.33% accuracy.",
+              "Used data augmentation and OpenCV for preprocessing.",
+            ],
             link: "https://github.com/AyanBanerjee29/bengali-ocr",
             image: "https://via.placeholder.com/150x100?text=Bengali+OCR",
           },
           {
-            title: "Financial Fraud Detection",
-            description: "GNN model to detect fraud in financial networks.",
-            link: "https://github.com/AyanBanerjee29/fraud-detection",
-            image: "https://via.placeholder.com/150x100?text=Fraud+Detection",
+            title: "Heart Disease Prediction",
+            date: "Jan. '25 - Apr. '25",
+            affiliation: "RKMVERI",
+            description: [
+              "Predicted heart disease using UCI dataset with ML algorithms.",
+              "Compared Logistic Regression, Random Forest, SVM.",
+              "Achieved high accuracy via hyperparameter tuning.",
+            ],
+            link: "https://github.com/AyanBanerjee29/heart-disease-prediction",
+            image: "https://via.placeholder.com/150x100?text=Heart+Disease",
           },
         ];
 
@@ -186,7 +249,6 @@
         );
       };
 
-      // Contact Form Component
       const ContactForm = () => {
         const handleSubmit = (e) => {
           e.preventDefault();
@@ -196,79 +258,35 @@
         return (
           <div className="space-y-4">
             <div>
-              <input
-                type="text"
-                placeholder="Your Name"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600"
-              />
+              <input type="text" placeholder="Your Name" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600" />
             </div>
             <div>
-              <input
-                type="email"
-                placeholder="Your Email"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600"
-              />
+              <input type="email" placeholder="Your Email" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600" />
             </div>
             <div>
-              <textarea
-                placeholder="Your Message"
-                className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600"
-                rows="4"
-              ></textarea>
+              <textarea placeholder="Your Message" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600" rows="4"></textarea>
             </div>
-            <button
-              onClick={handleSubmit}
-              className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700"
-            >
+            <button onClick={handleSubmit} className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700">
               Send Message
             </button>
           </div>
         );
       };
 
-      // Render Components with Error Boundary
       class ErrorBoundary extends React.Component {
         state = { hasError: false };
-
-        static getDerivedStateFromError() {
-          return { hasError: true };
-        }
-
-        render() {
-          if (this.state.hasError) {
-            return <div className="error-message">Something went wrong. Please refresh the page.</div>;
-          }
-          return this.props.children;
-        }
+        static getDerivedStateFromError() { return { hasError: true }; }
+        render() { return this.state.hasError ? <div className="error-message">Something went wrong. Please refresh the page.</div> : this.props.children; }
       }
 
-      // Render components
-      ReactDOM.render(
-        <ErrorBoundary>
-          <SkillsChart />
-        </ErrorBoundary>,
-        document.getElementById("skills-chart")
-      );
-      ReactDOM.render(
-        <ErrorBoundary>
-          <ProjectsContainer />
-        </ErrorBoundary>,
-        document.getElementById("projects-container")
-      );
-      ReactDOM.render(
-        <ErrorBoundary>
-          <ContactForm />
-        </ErrorBoundary>,
-        document.getElementById("contact-form")
-      );
+      ReactDOM.render(<ErrorBoundary><SkillsChart /></ErrorBoundary>, document.getElementById("skills-chart"));
+      ReactDOM.render(<ErrorBoundary><ProjectsContainer /></ErrorBoundary>, document.getElementById("projects-container"));
+      ReactDOM.render(<ErrorBoundary><ContactForm /></ErrorBoundary>, document.getElementById("contact-form"));
 
-      // Smooth Scrolling
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({
-            behavior: "smooth",
-          });
+          document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
         });
       });
     } catch (error) {
