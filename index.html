@@ -8,7 +8,7 @@
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
     .skill-bar { transition: width 0.5s ease-in-out; }
     .project-card {
@@ -17,52 +17,50 @@
     }
     .project-card:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
-      border-color: #6366f1;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      border-color: #1e293b;
     }
     .project-img { object-fit: cover; height: 100px; width: 150px; }
-    .error-message { color: #ff4d4f; text-align: center; padding: 20px; }
+    .error-message { color: #dc2626; text-align: center; padding: 20px; }
     .main-menu {
-      background-image: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url('https://images.unsplash.com/photo-1618477461853-e685408e9204?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-image: linear-gradient(rgba(0, 0, 50, 0.7), rgba(0, 0, 50, 0.7)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
       font-family: 'Poppins', sans-serif;
     }
     .about-section {
-      background-image: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url('https://images.unsplash.com/photo-1551288049-b1f3c21d0e65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-image: linear-gradient(rgba(0, 0, 50, 0.7), rgba(0, 0, 50, 0.7)), url('https://images.unsplash.com/photo-1551288049-b1f3c21d0e65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
     }
     .skills-section {
-      background-image: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-image: linear-gradient(rgba(0, 0, 50, 0.7), rgba(0, 0, 50, 0.7)), url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
     }
     .projects-section {
-      background-image: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-image: linear-gradient(rgba(0, 0, 50, 0.7), rgba(0, 0, 50, 0.7)), url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
     }
     .contact-section {
-      background-image: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url('https://images.unsplash.com/photo-1516321165247-7d868bd878a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-image: linear-gradient(rgba(0, 0, 50, 0.7), rgba(0, 0, 50, 0.7)), url('https://images.unsplash.com/photo-1516321165247-7d868bd878a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
     }
-    .section-text { text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
-    .fade-in { animation: fadeIn 0.5s ease-in; }
-    .slide-in-left { animation: slideInLeft 0.5s ease-in; }
-    .slide-in-right { animation: slideInRight 0.5s ease-in; }
+    .section-text { text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4); }
+    .fade-in { animation: fadeIn 0.6s ease-in; }
+    .scale-in { animation: scaleIn 0.6s ease-in; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-    @keyframes slideInLeft { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-    @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes scaleIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
     .nav-button {
       transition: transform 0.3s ease, background-color 0.3s ease;
-      border: 2px solid #6366f1;
+      border: 1px solid #475569;
     }
     .nav-button:hover {
-      transform: scale(1.1);
-      background-color: #4f46e5;
-      border-color: #a5b4fc;
+      transform: translateY(-2px);
+      background-color: #475569;
+      border-color: #64748b;
     }
   </style>
 </head>
@@ -101,15 +99,16 @@
       const MainMenu = ({ setSection }) => (
         <div className="main-menu min-h-screen w-full flex items-center justify-center fade-in">
           <div className="text-center">
-            <img src="https://avatars.githubusercontent.com/AyanBanerjee29" alt="Profile Photo" className="rounded-full mx-auto mb-6 w-48 h-48 object-cover shadow-lg slide-in-left" />
-            <h1 className="text-6xl font-bold mb-4 section-text tracking-tight slide-in-right">Ayan Banerjee</h1>
-            <p className="text-2xl mb-8 section-text slide-in-left">Data Scientist 
-                                          Transforming Data into Insightful Stories & Intelligent Solutions</p>
+            <img src="https://avatars.githubusercontent.com/AyanBanerjee29" alt="Profile Photo" className="rounded-full mx-auto mb-6 w-48 h-48 object-cover shadow-lg scale-in" />
+            <h1 className="text-6xl font-extrabold mb-2 section-text tracking-tight scale-in" style={{ color: '#F5F5F5' }}>Ayan Banerjee</h1>
+            <p className="text-3xl mb-8 section-text tracking-normal px-4 scale-in" style={{ color: '#D1D5DB' }}>
+              Data Scientist<br />Transforming Data into Insightful Stories & Intelligent Solutions
+            </p>
             <div className="flex flex-col gap-4 max-w-md mx-auto">
-              <button onClick={() => setSection('about')} className="nav-button bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 slide-in-right">About Me</button>
-              <button onClick={() => setSection('skills')} className="nav-button bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 slide-in-left">Skills</button>
-              <button onClick={() => setSection('projects')} className="nav-button bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 slide-in-right">Projects</button>
-              <button onClick={() => setSection('contact')} className="nav-button bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 slide-in-left">Contact</button>
+              <button onClick={() => setSection('about')} className="nav-button bg-slate-800 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-600 scale-in">About Me</button>
+              <button onClick={() => setSection('skills')} className="nav-button bg-slate-800 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-600 scale-in">Skills</button>
+              <button onClick={() => setSection('projects')} className="nav-button bg-slate-800 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-600 scale-in">Projects</button>
+              <button onClick={() => setSection('contact')} className="nav-button bg-slate-800 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-600 scale-in">Contact</button>
             </div>
           </div>
         </div>
@@ -118,24 +117,23 @@
       const AboutSection = ({ setSection }) => (
         <section className="about-section min-h-screen w-full flex items-center justify-center fade-in">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl font-bold mb-6 section-text slide-in-left">About Me</h2>
-            <div className="max-w-2xl mx-auto slide-in-right">
+            <h2 className="text-4xl font-bold mb-6 section-text scale-in">About Me</h2>
+            <div className="max-w-2xl mx-auto scale-in">
               <p className="text-lg mb-4 section-text">
                 I am a passionate Data Scientist with a strong foundation in Mathematics, Statistics, Machine Learning, and Deep Learning. My journey bridges the gap between theoretical rigor and practical problem-solving, enabling me to craft data-driven solutions to real-world challenges.
-             </p>
-             <p className="text-lg mb-4 section-text">
-              With a keen interest in uncovering hidden patterns and building intelligent systems, I specialize in designing and implementing ML/DL models for tasks ranging from predictive analytics to computer vision and recommendation systems. My mathematical background empowers me to deeply understand the underlying mechanics of algorithms, ensuring both model interpretability and robustness.
-            </p>
-            <p className="text-lg mb-4 section-text">
-              I enjoy exploring cutting-edge research, experimenting with novel architectures, and turning complex data into actionable insights. Whether it’s developing scalable pipelines, visualizing data intricacies, or optimizing model performance — I approach every project with curiosity, creativity, and precision.
-            </p>
-            <p className="text-lg mb-4 section-text">
-              When I'm not coding or modeling, you’ll find me diving into papers, learning new frameworks, or sharpening my skills to stay at the frontier of AI and data science.
-            </p>
-
-              <a href="https://cdn.jsdelivr.net/gh/AyanBanerjee29/Portfolio@main/Portfolio.pdf" className="text-indigo-400 hover:underline">Download My Portfolio PDF</a>
+              </p>
+              <p className="text-lg mb-4 section-text">
+                With a keen interest in uncovering hidden patterns and building intelligent systems, I specialize in designing and implementing ML/DL models for tasks ranging from predictive analytics to computer vision and recommendation systems. My mathematical background empowers me to deeply understand the underlying mechanics of algorithms, ensuring both model interpretability and robustness.
+              </p>
+              <p className="text-lg mb-4 section-text">
+                I enjoy exploring cutting-edge research, experimenting with novel architectures, and turning complex data into actionable insights. Whether it’s developing scalable pipelines, visualizing data intricacies, or optimizing model performance — I approach every project with curiosity, creativity, and precision.
+              </p>
+              <p className="text-lg mb-4 section-text">
+                When I'm not coding or modeling, you’ll find me diving into papers, learning new frameworks, or sharpening my skills to stay at the frontier of AI and data science.
+              </p>
+              <a href="https://cdn.jsdelivr.net/gh/AyanBanerjee29/Portfolio@main/Portfolio.pdf" className="text-blue-400 hover:underline">Download My Portfolio PDF</a>
             </div>
-            <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 slide-in-left">Back to Menu</button>
+            <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-600 scale-in">Back to Menu</button>
           </div>
         </section>
       );
@@ -150,7 +148,7 @@
         ];
 
         return (
-          <div className="max-w-2xl mx-auto slide-in-right">
+          <div className="max-w-2xl mx-auto scale-in">
             {skills.map((skill, index) => (
               <div key={index} className="mb-4">
                 <div className="flex justify-between mb-1">
@@ -159,7 +157,7 @@
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-2.5">
                   <div
-                    className="bg-indigo-500 h-2.5 rounded-full skill-bar"
+                    className="bg-blue-500 h-2.5 rounded-full skill-bar"
                     style={{ width: `${skill.level}%` }}
                   ></div>
                 </div>
@@ -172,9 +170,9 @@
       const SkillsSection = ({ setSection }) => (
         <section className="skills-section min-h-screen w-full flex items-center justify-center fade-in">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl font-bold mb-6 section-text slide-in-left">Technical Skills</h2>
+            <h2 className="text-4xl font-bold mb-6 section-text scale-in">Technical Skills</h2>
             <SkillsChart />
-            <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 slide-in-right">Back to Menu</button>
+            <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-600 scale-in">Back to Menu</button>
           </div>
         </section>
       );
@@ -191,7 +189,7 @@
                     <li key={index}>{item}</li>
                   ))}
                 </ul>
-                <a href={link} className="text-indigo-400 text-sm hover:underline">View on GitHub</a>
+                <a href={link} className="text-blue-400 text-sm hover:underline">View on GitHub</a>
               </div>
               <img src={image} alt={title} className="project-img rounded-lg" />
             </>
@@ -206,7 +204,7 @@
                     <li key={index}>{item}</li>
                   ))}
                 </ul>
-                <a href={link} className="text-indigo-400 text-sm hover:underline">View on GitHub</a>
+                <a href={link} className="text-blue-400 text-sm hover:underline">View on GitHub</a>
               </div>
             </>
           )}
@@ -268,13 +266,13 @@
         return (
           <section className="projects-section min-h-screen w-full flex items-center justify-center fade-in">
             <div className="container mx-auto px-4 text-center">
-              <h2 className="text-4xl font-bold mb-6 section-text slide-in-left">My Projects</h2>
-              <div className="flex flex-col gap-4 max-w-2xl mx-auto slide-in-right">
+              <h2 className="text-4xl font-bold mb-6 section-text scale-in">My Projects</h2>
+              <div className="flex flex-col gap-4 max-w-2xl mx-auto scale-in">
                 {projects.map((project, index) => (
                   <ProjectCard key={index} {...project} isImageRight={index % 2 === 1} />
                 ))}
               </div>
-              <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 slide-in-left">Back to Menu</button>
+              <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-600 scale-in">Back to Menu</button>
             </div>
           </section>
         );
@@ -287,17 +285,17 @@
         };
 
         return (
-          <div className="space-y-4 max-w-md mx-auto slide-in-right">
+          <div className="space-y-4 max-w-md mx-auto scale-in">
             <div>
-              <input type="text" placeholder="Your Name" className="w-full p-3 border border-gray-500 rounded-lg focus:outline-none focus:border-indigo-400 bg-gray-800 text-white" />
+              <input type="text" placeholder="Your Name" className="w-full p-3 border border-gray-500 rounded-lg focus:outline-none focus:border-blue-400 bg-gray-800 text-white" />
             </div>
             <div>
-              <input type="email" placeholder="Your Email" className="w-full p-3 border border-gray-500 rounded-lg focus:outline-none focus:border-indigo-400 bg-gray-800 text-white" />
+              <input type="email" placeholder="Your Email" className="w-full p-3 border border-gray-500 rounded-lg focus:outline-none focus:border-blue-400 bg-gray-800 text-white" />
             </div>
             <div>
-              <textarea placeholder="Your Message" className="w-full p-3 border border-gray-500 rounded-lg focus:outline-none focus:border-indigo-400 bg-gray-800 text-white" rows="4"></textarea>
+              <textarea placeholder="Your Message" className="w-full p-3 border border-gray-500 rounded-lg focus:outline-none focus:border-blue-400 bg-gray-800 text-white" rows="4"></textarea>
             </div>
-            <button onClick={handleSubmit} className="nav-button bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700">Send Message</button>
+            <button onClick={handleSubmit} className="nav-button bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-600">Send Message</button>
           </div>
         );
       };
@@ -305,15 +303,15 @@
       const ContactSection = ({ setSection }) => (
         <section className="contact-section min-h-screen w-full flex items-center justify-center fade-in">
           <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl font-bold mb-6 section-text slide-in-left">Get in Touch</h2>
-            <p className="text-lg mb-6 section-text slide-in-right">Let's collaborate on data-driven solutions!</p>
+            <h2 className="text-4xl font-bold mb-6 section-text scale-in">Get in Touch</h2>
+            <p className="text-lg mb-6 section-text scale-in">Let's collaborate on data-driven solutions!</p>
             <ContactForm />
-            <div className="flex justify-center space-x-6 mt-6 slide-in-left">
-              <a href="mailto:ayan292004banerjee@gmail.com" className="text-indigo-400 hover:underline">Email</a>
-              <a href="https://github.com/AyanBanerjee29" className="text-indigo-400 hover:underline">GitHub</a>
-              <a href="https://linkedin.com/in/ayan-banerjee-b8234b321" className="text-indigo-400 hover:underline">LinkedIn</a>
+            <div className="flex justify-center space-x-6 mt-6 scale-in">
+              <a href="mailto:ayan292004banerjee@gmail.com" className="text-blue-400 hover:underline">Email</a>
+              <a href="https://github.com/AyanBanerjee29" className="text-blue-400 hover:underline">GitHub</a>
+              <a href="https://linkedin.com/in/ayan-banerjee-b8234b321" className="text-blue-400 hover:underline">LinkedIn</a>
             </div>
-            <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 slide-in-right">Back to Menu</button>
+            <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-600 scale-in">Back to Menu</button>
           </div>
         </section>
       );
@@ -332,7 +330,7 @@
       );
     } catch (error) {
       console.error("Script error:", error);
-      document.body.innerHTML += '<div class="error-message">Failed to load interactive components. Please check your network or refresh the page.</div>';
+      document.body.innerHTML += '<div className="error-message">Failed to load interactive components. Please check your network or refresh the page.</div>';
     }
   </script>
 </body>
