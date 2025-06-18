@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ayan Banerjee - Data Scientist Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/babel-standalone@6/babel.min.js"></script>
+  <style>
+    .skill-bar { transition: width 0.5s ease-in-out; }
+    .project-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .project-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans">
+  <!-- Navigation -->
+  <nav class="bg-indigo-700 text-white p-4 sticky top-0 z-10 shadow-lg">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Ayan Banerjee</h1>
+      <ul class="flex space-x-6">
+        <li><a href="#about" class="hover:underline">About</a></li>
+        <li><a href="#skills" class="hover:underline">Skills</a></li>
+        <li><a href="#projects" class="hover:underline">Projects</a></li>
+        <li><a href="#contact" class="hover:underline">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-20">
+    <div class="container mx-auto flex flex-col md:flex-row items-center px-4">
+      <div class="md:w-1/2 text-center md:text-left">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">Data Scientist & Innovator</h2>
+        <p class="text-lg mb-6">Crafting impactful solutions with machine learning, computer vision, and data analytics.</p>
+        <a href="#contact" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200">Connect with Me</a>
+      </div>
+      <div class="md:w-1/2 mt-6 md:mt-0">
+        <img src="https://via.placeholder.com/300x300" alt="Profile Photo" class="rounded-full mx-auto shadow-lg">
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">About Me</h2>
+      <div class="max-w-3xl mx-auto text-center">
+        <p class="text-lg text-gray-700 mb-4">
+          I'm Ayan Banerjee, a passionate data scientist with expertise in machine learning, computer vision, and natural language processing. With a strong foundation in Python, PyTorch, and TensorFlow, I build innovative solutions like recommendation systems and OCR models. My academic journey at RKMVERI and Serampore College has fueled my drive to solve real-world problems through data.
+        </p>
+        <a href="https://cdn.jsdelivr.net/gh/AyanBanerjee29/Portfolio@main/Portfolio.pdf" class="text-indigo-600 hover:underline">Download My Portfolio PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="bg-gray-100 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">Technical Skills</h2>
+      <div id="skills-chart" class="max-w-2xl mx-auto"></div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8">My Projects</h2>
+      <div id="projects-container" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-gray-100 py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-8">Get in Touch</h2>
+      <p class="text-lg text-gray-700 mb-6">Interested in collaborating or discussing opportunities? Reach out!</p>
+      <div id="contact-form" class="max-w-md mx-auto"></div>
+      <div class="flex justify-center space-x-6 mt-6">
+        <a href="mailto:ayan292004banerjee@gmail.com" class="text-indigo-600 hover:underline">Email</a>
+        <a href="https://github.com/AyanBanerjee29" class="text-indigo-600 hover:underline">GitHub</a>
+        <a href="https://linkedin.com/in/ayan-banerjee-b8234b321" class="text-indigo-600 hover:underline">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-indigo-700 text-white py-4">
+    <div class="container mx-auto text-center">
+      <p>© 2025 Ayan Banerjee. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script type="text/babel">
+    // Skills Component
+    const SkillsChart = () => {
+      const skills = [
+        { name: "Python", level: 90 },
+        { name: "PyTorch", level: 85 },
+        { name: "TensorFlow", level: 80 },
+        { name: "OpenCV", level: 75 },
+        { name: "SQL", level: 70 },
+        { name: "R", level: 65 },
+      ];
+
+      return (
+        <div>
+          {skills.map((skill, index) => (
+            <div key={index} className="mb-4">
+              <div className="flex justify-between mb-1">
+                <span className="text-gray-700">{skill.name}</span>
+                <span className="text-gray-700">{skill.level}%</span>
+              </div>
+              <div className="w-full bg-gray-300 rounded-full h-2.5">
+                <div
+                  className="bg-indigo-600 h-2.5 rounded-full skill-bar"
+                  style={{ width: `${skill.level}%` }}
+                ></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      );
+    };
+
+    // Project Card Component
+    const ProjectCard = ({ title, description, link }) => {
+      return (
+        <div className="bg-white p-6 rounded-lg shadow-md project-card">
+          <h3 className="text-xl font-semibold mb-2">{title}</h3>
+          <p className="text-gray-600 mb-4">{description}</p>
+          <a href={link} className="text-indigo-600 hover:underline">View on GitHub</a>
+        </div>
+      );
+    };
+
+    // Projects Container
+    const ProjectsContainer = () => {
+      const projects = [
+        {
+          title: "Movie Recommendation System",
+          description: "A collaborative filtering-based system using matrix factorization and deep learning.",
+          link: "https://github.com/AyanBanerjee29/movie-recommendation",
+        },
+        {
+          title: "Bengali OCR",
+          description: "An optical character recognition model for Bengali digits using PyTorch and CNNs.",
+          link: "https://github.com/AyanBanerjee29/bengali-ocr",
+        },
+        {
+          title: "Financial Fraud Detection",
+          description: "A GNN-based model to detect transaction fraud and fraud rings in financial networks.",
+          link: "https://github.com/AyanBanerjee29/fraud-detection",
+        },
+      ];
+
+      return (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {projects.map((project, index) => (
+            <ProjectCard key={index} {...project} />
+          ))}
+        </div>
+      );
+    };
+
+    // Contact Form Component
+    const ContactForm = () => {
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        alert("Thank you for your message! I'll get back to you soon.");
+      };
+
+      return (
+        <div className="space-y-4">
+          <div>
+            <input
+              type="text"
+              placeholder="Your Name"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600"
+            />
+          </div>
+          <div>
+            <input
+              type="email"
+              placeholder="Your Email"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600"
+            />
+          </div>
+          <div>
+            <textarea
+              placeholder="Your Message"
+              className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600"
+              rows="4"
+            ></textarea>
+          </div>
+          <button
+            onClick={handleSubmit}
+            className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700"
+          >
+            Send Message
+          </button>
+        </div>
+      );
+    };
+
+    // Render Components
+    ReactDOM.render(<SkillsChart />, document.getElementById("skills-chart"));
+    ReactDOM.render(<ProjectsContainer />, document.getElementById("projects-container"));
+    ReactDOM.render(<ContactForm />, document.getElementById("contact-form"));
+
+    // Smooth Scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute("href")).scrollIntoView({
+          behavior: "smooth",
+        });
+      });
+    });
+  </script>
+</body>
+</html>
