@@ -10,7 +10,6 @@
   <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
   <style>
-    .skill-bar { transition: width 0.5s ease-in-out; }
     .project-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       border: 2px solid transparent;
@@ -37,6 +36,7 @@
       background-image: linear-gradient(rgba(0, 0, 50, 0.7), rgba(0, 0, 50, 0.7)), url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
+      font-family: 'Poppins', sans-serif;
     }
     .projects-section {
       background-image: linear-gradient(rgba(0, 0, 50, 0.7), rgba(0, 0, 50, 0.7)), url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
@@ -61,6 +61,18 @@
       transform: translateY(-2px);
       background-color: #475569;
       border-color: #64748b;
+    }
+    .skill-tag {
+      background-color: #1e293b;
+      color: #ffffff;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: transform 0.2s ease;
+    }
+    .skill-tag:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -131,51 +143,30 @@
               <p className="text-lg mb-4 section-text">
                 When I'm not coding or modeling, you’ll find me diving into papers, learning new frameworks, or sharpening my skills to stay at the frontier of AI and data science.
               </p>
-              <a href="https://github.com/AyanBanerjee29/AyanBanerjee29.github.io/raw/main/resume.pdf" className="text-blue-400 hover:underline">Download My Resume PDF</a>
+              <a href="https://cdn.jsdelivr.net/gh/AyanBanerjee29/Portfolio@main/Portfolio.pdf" className="text-blue-400 hover:underline">Download My Portfolio PDF</a>
             </div>
-            <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-600 scale-in">Back to Menu</button>
+            <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-slate-800 text-white px-6 py-2 rounded-lg font-semibold hover:bg-slate-600 scale-in">Back to Menu</button>
           </div>
         </section>
       );
 
-      const SkillsChart = () => {
-        const skills = [
-          { name: "Python", level: 85 },
-          { name: "PyTorch", level: 75 },
-          { name: "Statistics", level: 85 },
-          { name: "Mathematics", level: 85 },
-          { name: "SQL", level: 75 },
-        ];
+      const SkillsSection = ({ setSection }) => {
+        const skills = ['Python', 'NumPy', 'Pandas', 'PyTorch', 'SQL', 'R', 'Statistics', 'Mathematics'];
 
         return (
-          <div className="max-w-2xl mx-auto scale-in">
-            {skills.map((skill, index) => (
-              <div key={index} className="mb-4">
-                <div className="flex justify-between mb-1">
-                  <span className="text-gray-300">{skill.name}</span>
-                  <span className="text-gray-300">{skill.level}%</span>
-                </div>
-                <div className="w-full bg-gray-700 rounded-full h-2.5">
-                  <div
-                    className="bg-blue-500 h-2.5 rounded-full skill-bar"
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
-                </div>
+          <section className="skills-section min-h-screen w-full flex items-center justify-center fade-in">
+            <div className="container mx-auto px-4 text-center">
+              <h2 className="text-4xl font-bold mb-6 section-text scale-in">Technical Skills</h2>
+              <div className="flex flex-wrap justify-center gap-4 max-w-2xl mx-auto scale-in">
+                {skills.map((skill, index) => (
+                  <span key={index} className="skill-tag">{skill}</span>
+                ))}
               </div>
-            ))}
-          </div>
+              <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-slate-800 text-white px-6 py-2 rounded-lg font-semibold hover:bg-slate-600 scale-in">Back to Menu</button>
+            </div>
+          </section>
         );
       };
-
-      const SkillsSection = ({ setSection }) => (
-        <section className="skills-section min-h-screen w-full flex items-center justify-center fade-in">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-4xl font-bold mb-6 section-text scale-in">Technical Skills</h2>
-            <SkillsChart />
-            <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-600 scale-in">Back to Menu</button>
-          </div>
-        </section>
-      );
 
       const ProjectCard = ({ title, date, affiliation, description, link, image, isImageRight }) => (
         <div className="bg-gray-800 p-4 rounded-lg shadow-md project-card flex flex-col sm:flex-row items-center gap-4">
