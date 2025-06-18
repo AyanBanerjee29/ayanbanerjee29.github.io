@@ -8,120 +8,127 @@
   <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     .skill-bar { transition: width 0.5s ease-in-out; }
-    .project-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .project-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 2px solid transparent;
+    }
+    .project-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+      border-color: #6366f1;
+    }
     .project-img { object-fit: cover; height: 100px; width: 150px; }
-    .error-message { color: red; text-align: center; padding: 20px; }
-    .hero-section {
-      background-image: linear-gradient(rgba(0, 0, 50, 0.7), rgba(0, 0, 50, 0.7)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    .error-message { color: #ff4d4f; text-align: center; padding: 20px; }
+    .main-menu {
+      background-image: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url('https://images.unsplash.com/photo-1618477461853-e685408e9204?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
-      background-attachment: fixed;
+      font-family: 'Poppins', sans-serif;
     }
     .about-section {
-      background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1551288049-b1f3c21d0e65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-image: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url('https://images.unsplash.com/photo-1551288049-b1f3c21d0e65?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
     }
     .skills-section {
-      background-image: linear-gradient(rgba(243, 244, 246, 0.95), rgba(243, 244, 246, 0.95)), url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-image: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url('https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
     }
     .projects-section {
-      background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-image: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url('https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
     }
     .contact-section {
-      background-image: linear-gradient(rgba(243, 244, 246, 0.95), rgba(243, 244, 246, 0.95)), url('https://images.unsplash.com/photo-1516321165247-7d868bd878a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+      background-image: linear-gradient(rgba(0, 0, 50, 0.8), rgba(0, 0, 50, 0.8)), url('https://images.unsplash.com/photo-1516321165247-7d868bd878a4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
     }
-    .section-text { text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); }
+    .section-text { text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5); }
+    .fade-in { animation: fadeIn 0.5s ease-in; }
+    .slide-in-left { animation: slideInLeft 0.5s ease-in; }
+    .slide-in-right { animation: slideInRight 0.5s ease-in; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideInLeft { from { transform: translateX(-100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    @keyframes slideInRight { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+    .nav-button {
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      border: 2px solid #6366f1;
+    }
+    .nav-button:hover {
+      transform: scale(1.1);
+      background-color: #4f46e5;
+      border-color: #a5b4fc;
+    }
   </style>
 </head>
-<body class="bg-gray-50 font-sans">
-  <!-- Navigation -->
-  <nav class="bg-indigo-700 text-white p-4 sticky top-0 z-10 shadow-lg">
-    <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Ayan Banerjee</h1>
-      <ul class="flex space-x-6">
-        <li><a href="#about" className="hover:underline">About</a></li>
-        <li><a href="#skills" className="hover:underline">Skills</a></li>
-        <li><a href="#projects" className="hover:underline">Projects</a></li>
-        <li><a href="#contact" className="hover:underline">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section class="min-h-screen hero-section text-white flex items-center justify-center">
-    <div class="container mx-auto flex flex-col md:flex-row items-center px-4">
-      <div class="md:w-1/2 text-center md:text-left">
-        <h2 class="text-4xl md:text-5xl font-bold mb-4 section-text">Data Scientist & Innovator</h2>
-        <p class="text-lg mb-6 section-text">Specializing in Machine Learning, Deep Learning, Statistics, and Mathematics.</p>
-        <a href="#contact" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-200">Connect with Me</a>
-      </div>
-      <div class="md:w-1/2 mt-6 md:mt-0">
-        <img src="https://avatars.githubusercontent.com/AyanBanerjee29" alt="Profile Photo" class="rounded-full mx-auto shadow-lg w-72 h-72 object-cover" />
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="min-h-screen about-section py-16 flex items-center">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8 section-text">About Me</h2>
-      <div class="max-w-3xl mx-auto text-center">
-        <p class="text-lg text-gray-700 mb-4 section-text">
-          I'm Ayan Banerjee, a data scientist with expertise in machine learning, deep learning, statistics, and mathematics. Currently pursuing my degree at RKMVERI and Serampore College, I build innovative solutions like recommendation systems, OCR models, and fraud detection systems using Python, PyTorch, and TensorFlow.
-        </p>
-        <a href="https://cdn.jsdelivr.net/gh/AyanBanerjee29/Portfolio@main/Portfolio.pdf" class="text-indigo-600 hover:underline">Download My Portfolio PDF</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills Section -->
-  <section id="skills" class="min-h-screen skills-section py-16 flex items-center">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8 section-text">Technical Skills</h2>
-      <div id="skills-chart" class="max-w-2xl mx-auto"></div>
-    </div>
-  </section>
-
-  <!-- Projects Section -->
-  <section id="projects" class="min-h-screen projects-section py-16 flex items-center">
-    <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8 section-text">My Projects</h2>
-      <div id="projects-container" class="flex flex-col gap-4 max-w-2xl mx-auto"></div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="min-h-screen contact-section py-16 flex items-center">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-bold mb-8 section-text">Get in Touch</h2>
-      <p class="text-lg text-gray-700 mb-6 section-text">Let's collaborate on data-driven solutions!</p>
-      <div id="contact-form" class="max-w-md mx-auto"></div>
-      <div class="flex justify-center space-x-6 mt-6">
-        <a href="mailto:ayan292004banerjee@gmail.com" class="text-indigo-600 hover:underline">Email</a>
-        <a href="https://github.com/AyanBanerjee29" class="text-indigo-600 hover:underline">GitHub</a>
-        <a href="https://linkedin.com/in/ayan-banerjee-b8234b321" class="text-indigo-600 hover:underline">LinkedIn</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-indigo-700 text-white py-4">
-    <div class="container mx-auto text-center">
-      <p>© 2025 Ayan Banerjee. All rights reserved.</p>
-    </div>
-  </footer>
+<body class="bg-gray-900 font-sans text-white">
+  <div id="app" class="min-h-screen"></div>
 
   <script type="text/babel">
     try {
+      const App = () => {
+        const [currentSection, setCurrentSection] = React.useState('menu');
+
+        const renderSection = () => {
+          switch (currentSection) {
+            case 'menu':
+              return <MainMenu setSection={setCurrentSection} />;
+            case 'about':
+              return <AboutSection setSection={setCurrentSection} />;
+            case 'skills':
+              return <SkillsSection setSection={setCurrentSection} />;
+            case 'projects':
+              return <ProjectsSection setSection={setCurrentSection} />;
+            case 'contact':
+              return <ContactSection setSection={setCurrentSection} />;
+            default:
+              return <MainMenu setSection={setCurrentSection} />;
+          }
+        };
+
+        return (
+          <div className="min-h-screen flex items-center justify-center">
+            {renderSection()}
+          </div>
+        );
+      };
+
+      const MainMenu = ({ setSection }) => (
+        <div className="main-menu min-h-screen w-full flex items-center justify-center fade-in">
+          <div className="text-center">
+            <img src="https://avatars.githubusercontent.com/AyanBanerjee29" alt="Profile Photo" className="rounded-full mx-auto mb-6 w-48 h-48 object-cover shadow-lg slide-in-left" />
+            <h1 className="text-6xl font-bold mb-4 section-text tracking-tight slide-in-right">Ayan Banerjee</h1>
+            <p className="text-2xl mb-8 section-text slide-in-left">Data Scientist & Innovator</p>
+            <div className="flex flex-col gap-4 max-w-md mx-auto">
+              <button onClick={() => setSection('about')} className="nav-button bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 slide-in-right">About Me</button>
+              <button onClick={() => setSection('skills')} className="nav-button bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 slide-in-left">Skills</button>
+              <button onClick={() => setSection('projects')} className="nav-button bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 slide-in-right">Projects</button>
+              <button onClick={() => setSection('contact')} className="nav-button bg-indigo-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-indigo-700 slide-in-left">Contact</button>
+            </div>
+          </div>
+        </div>
+      );
+
+      const AboutSection = ({ setSection }) => (
+        <section className="about-section min-h-screen w-full flex items-center justify-center fade-in">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-4xl font-bold mb-6 section-text slide-in-left">About Me</h2>
+            <div className="max-w-2xl mx-auto slide-in-right">
+              <p className="text-lg mb-4 section-text">
+                I'm Ayan Banerjee, a data scientist with expertise in machine learning, deep learning, statistics, and mathematics. Currently pursuing my degree at RKMVERI and Serampore College, I build innovative solutions like recommendation systems, OCR models, and fraud detection systems using Python, PyTorch, and TensorFlow.
+              </p>
+              <a href="https://cdn.jsdelivr.net/gh/AyanBanerjee29/Portfolio@main/Portfolio.pdf" className="text-indigo-400 hover:underline">Download My Portfolio PDF</a>
+            </div>
+            <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 slide-in-left">Back to Menu</button>
+          </div>
+        </section>
+      );
+
       const SkillsChart = () => {
         const skills = [
           { name: "Python", level: 90 },
@@ -133,16 +140,16 @@
         ];
 
         return (
-          <div>
+          <div className="max-w-2xl mx-auto slide-in-right">
             {skills.map((skill, index) => (
               <div key={index} className="mb-4">
                 <div className="flex justify-between mb-1">
-                  <span className="text-gray-700">{skill.name}</span>
-                  <span className="text-gray-700">{skill.level}%</span>
+                  <span className="text-gray-300">{skill.name}</span>
+                  <span className="text-gray-300">{skill.level}%</span>
                 </div>
-                <div className="w-full bg-gray-300 rounded-full h-2.5">
+                <div className="w-full bg-gray-700 rounded-full h-2.5">
                   <div
-                    className="bg-indigo-600 h-2.5 rounded-full skill-bar"
+                    className="bg-indigo-500 h-2.5 rounded-full skill-bar"
                     style={{ width: `${skill.level}%` }}
                   ></div>
                 </div>
@@ -152,43 +159,51 @@
         );
       };
 
-      const ProjectCard = ({ title, date, affiliation, description, link, image, isImageRight }) => {
-        return (
-          <div className="bg-white p-4 rounded-lg shadow-md project-card flex flex-col sm:flex-row items-center gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-            {isImageRight ? (
-              <>
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold mb-1">{title}</h3>
-                  <p className="text-sm text-gray-500 mb-1">{date} | {affiliation}</p>
-                  <ul className="text-gray-600 text-sm mb-2 list-disc list-inside">
-                    {description.map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))}
-                  </ul>
-                  <a href={link} className="text-indigo-600 text-sm hover:underline">View on GitHub</a>
-                </div>
-                <img src={image} alt={title} className="project-img rounded-lg" />
-              </>
-            ) : (
-              <>
-                <img src={image} alt={title} className="project-img rounded-lg" />
-                <div className="flex-1">
-                  <h3 className="text-lg font-semibold mb-1">{title}</h3>
-                  <p className="text-sm text-gray-500 mb-1">{date} | {affiliation}</p>
-                  <ul className="text-gray-600 text-sm mb-2 list-disc list-inside">
-                    {description.map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))}
-                  </ul>
-                  <a href={link} className="text-indigo-600 text-sm hover:underline">View on GitHub</a>
-                </div>
-              </>
-            )}
+      const SkillsSection = ({ setSection }) => (
+        <section className="skills-section min-h-screen w-full flex items-center justify-center fade-in">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-4xl font-bold mb-6 section-text slide-in-left">Technical Skills</h2>
+            <SkillsChart />
+            <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 slide-in-right">Back to Menu</button>
           </div>
-        );
-      };
+        </section>
+      );
 
-      const ProjectsContainer = () => {
+      const ProjectCard = ({ title, date, affiliation, description, link, image, isImageRight }) => (
+        <div className="bg-gray-800 p-4 rounded-lg shadow-md project-card flex flex-col sm:flex-row items-center gap-4">
+          {isImageRight ? (
+            <>
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold mb-1 section-text">{title}</h3>
+                <p className="text-sm text-gray-400 mb-1">{date} | {affiliation}</p>
+                <ul className="text-gray-300 text-sm mb-2 list-disc list-inside">
+                  {description.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+                <a href={link} className="text-indigo-400 text-sm hover:underline">View on GitHub</a>
+              </div>
+              <img src={image} alt={title} className="project-img rounded-lg" />
+            </>
+          ) : (
+            <>
+              <img src={image} alt={title} className="project-img rounded-lg" />
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold mb-1 section-text">{title}</h3>
+                <p className="text-sm text-gray-400 mb-1">{date} | {affiliation}</p>
+                <ul className="text-gray-300 text-sm mb-2 list-disc list-inside">
+                  {description.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+                <a href={link} className="text-indigo-400 text-sm hover:underline">View on GitHub</a>
+              </div>
+            </>
+          )}
+        </div>
+      );
+
+      const ProjectsSection = ({ setSection }) => {
         const projects = [
           {
             title: "Movie Recommendation System",
@@ -241,11 +256,17 @@
         ];
 
         return (
-          <div className="flex flex-col gap-4">
-            {projects.map((project, index) => (
-              <ProjectCard key={index} {...project} isImageRight={index % 2 === 1} />
-            ))}
-          </div>
+          <section className="projects-section min-h-screen w-full flex items-center justify-center fade-in">
+            <div className="container mx-auto px-4 text-center">
+              <h2 className="text-4xl font-bold mb-6 section-text slide-in-left">My Projects</h2>
+              <div className="flex flex-col gap-4 max-w-2xl mx-auto slide-in-right">
+                {projects.map((project, index) => (
+                  <ProjectCard key={index} {...project} isImageRight={index % 2 === 1} />
+                ))}
+              </div>
+              <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 slide-in-left">Back to Menu</button>
+            </div>
+          </section>
         );
       };
 
@@ -256,22 +277,36 @@
         };
 
         return (
-          <div className="space-y-4">
+          <div className="space-y-4 max-w-md mx-auto slide-in-right">
             <div>
-              <input type="text" placeholder="Your Name" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600" />
+              <input type="text" placeholder="Your Name" className="w-full p-3 border border-gray-500 rounded-lg focus:outline-none focus:border-indigo-400 bg-gray-800 text-white" />
             </div>
             <div>
-              <input type="email" placeholder="Your Email" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600" />
+              <input type="email" placeholder="Your Email" className="w-full p-3 border border-gray-500 rounded-lg focus:outline-none focus:border-indigo-400 bg-gray-800 text-white" />
             </div>
             <div>
-              <textarea placeholder="Your Message" className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-600" rows="4"></textarea>
+              <textarea placeholder="Your Message" className="w-full p-3 border border-gray-500 rounded-lg focus:outline-none focus:border-indigo-400 bg-gray-800 text-white" rows="4"></textarea>
             </div>
-            <button onClick={handleSubmit} className="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700">
-              Send Message
-            </button>
+            <button onClick={handleSubmit} className="nav-button bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700">Send Message</button>
           </div>
         );
       };
+
+      const ContactSection = ({ setSection }) => (
+        <section className="contact-section min-h-screen w-full flex items-center justify-center fade-in">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-4xl font-bold mb-6 section-text slide-in-left">Get in Touch</h2>
+            <p className="text-lg mb-6 section-text slide-in-right">Let's collaborate on data-driven solutions!</p>
+            <ContactForm />
+            <div className="flex justify-center space-x-6 mt-6 slide-in-left">
+              <a href="mailto:ayan292004banerjee@gmail.com" className="text-indigo-400 hover:underline">Email</a>
+              <a href="https://github.com/AyanBanerjee29" className="text-indigo-400 hover:underline">GitHub</a>
+              <a href="https://linkedin.com/in/ayan-banerjee-b8234b321" className="text-indigo-400 hover:underline">LinkedIn</a>
+            </div>
+            <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 slide-in-right">Back to Menu</button>
+          </div>
+        </section>
+      );
 
       class ErrorBoundary extends React.Component {
         state = { hasError: false };
@@ -279,16 +314,12 @@
         render() { return this.state.hasError ? <div className="error-message">Something went wrong. Please refresh the page.</div> : this.props.children; }
       }
 
-      ReactDOM.render(<ErrorBoundary><SkillsChart /></ErrorBoundary>, document.getElementById("skills-chart"));
-      ReactDOM.render(<ErrorBoundary><ProjectsContainer /></ErrorBoundary>, document.getElementById("projects-container"));
-      ReactDOM.render(<ErrorBoundary><ContactForm /></ErrorBoundary>, document.getElementById("contact-form"));
-
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute("href")).scrollIntoView({ behavior: "smooth" });
-        });
-      });
+      ReactDOM.render(
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>,
+        document.getElementById('app')
+      );
     } catch (error) {
       console.error("Script error:", error);
       document.body.innerHTML += '<div class="error-message">Failed to load interactive components. Please check your network or refresh the page.</div>';
