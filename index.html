@@ -9,6 +9,7 @@
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     .project-card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -72,6 +73,12 @@
       transition: transform 0.2s ease;
     }
     .skill-tag:hover {
+      transform: scale(1.05);
+    }
+    .contact-link {
+      transition: transform 0.2s ease;
+    }
+    .contact-link:hover {
       transform: scale(1.05);
     }
   </style>
@@ -269,62 +276,26 @@
         );
       };
 
-      const ContactForm = () => {
-        const handleSubmit = (e) => {
-          e.preventDefault();
-          alert("Thank you for your message! It has been sent.");
-        };
-
-        return (
-          <form action="https://formspree.io/f/xxxxxxxx" method="POST" className="space-y-4 max-w-md mx-auto scale-in" onSubmit={handleSubmit}>
-            <div>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                className="w-full p-3 border border-gray-500 rounded-lg focus:outline-none focus:border-blue-400 bg-gray-800 text-white"
-                required
-              />
-            </div>
-            <div>
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                className="w-full p-3 border border-gray-500 rounded-lg focus:outline-none focus:border-blue-400 bg-gray-800 text-white"
-                required
-              />
-            </div>
-            <div>
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                className="w-full p-3 border border-gray-500 rounded-lg focus:outline-none focus:border-blue-400 bg-gray-800 text-white"
-                rows="4"
-                required
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="nav-button bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-600"
-            >
-              Send Message
-            </button>
-          </form>
-        );
-      };
-
       const ContactSection = ({ setSection }) => (
         <section className="contact-section min-h-screen w-full flex items-center justify-center fade-in">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-4xl font-bold mb-6 section-text scale-in">Get in Touch</h2>
             <p className="text-lg mb-6 section-text scale-in">Let's collaborate on data-driven solutions!</p>
-            <ContactForm />
-            <div className="flex justify-center space-x-6 mt-6 scale-in">
-              <a href="mailto:ayan292004banerjee@gmail.com" className="text-blue-400 hover:underline">Email</a>
-              <a href="https://github.com/AyanBanerjee29" className="text-blue-400 hover:underline">GitHub</a>
-              <a href="https://linkedin.com/in/ayan-banerjee-b8234b321" className="text-blue-400 hover:underline">LinkedIn</a>
-              <a href="tel:+919876543210" className="text-blue-400 hover:underline">+91 98765 43210</a>
+            <div className="bg-gray-800 p-6 rounded-lg shadow-md max-w-md mx-auto scale-in">
+              <div className="flex flex-col sm:flex-row justify-center space-x-0 sm:space-x-6 space-y-4 sm:space-y-0">
+                <a href="mailto:ayan292004banerjee@gmail.com" className="contact-link text-blue-400 hover:underline text-lg font-semibold flex items-center gap-2">
+                  <i className="fas fa-envelope"></i> Email
+                </a>
+                <a href="https://github.com/AyanBanerjee29" className="contact-link text-blue-400 hover:underline text-lg font-semibold flex items-center gap-2">
+                  <i className="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://linkedin.com/in/ayan-banerjee-b8234b321" className="contact-link text-blue-400 hover:underline text-lg font-semibold flex items-center gap-2">
+                  <i className="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="tel:+919876543210" className="contact-link text-blue-400 hover:underline text-lg font-semibold flex items-center gap-2">
+                  <i className="fas fa-phone"></i> Call
+                </a>
+              </div>
             </div>
             <button onClick={() => setSection('menu')} className="nav-button mt-6 bg-slate-800 text-white px-6 py-3 rounded-lg font-semibold hover:bg-slate-600 scale-in">Back to Menu</button>
           </div>
